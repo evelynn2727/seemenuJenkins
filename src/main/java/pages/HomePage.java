@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasePage {
 
-    @FindBy(xpath = "//a[contains(@class,'btn btn-primary')]")
+    @FindBy(css = ".main-lang-login .restaurant-button")
     private WebElement restaurationButton;
 
     public HomePage(WebDriver driver) {

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AgreementPage extends BasePage {
-    @FindBy(css= ".agreement-buttons .accept-button")
+    @FindBy(css= ".accept-button")
     private WebElement agreeButton;
 
     public AgreementPage(WebDriver driver) {

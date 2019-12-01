@@ -19,7 +19,7 @@ public class FullTest extends BaseTest {
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+149@milosolutions.com","milo1024","milo1");
+        restaurationFactory = new RestaurationFactory("epalka+152@milosolutions.com","milo1024","milo1");
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         agreementPage= new AgreementPage(driver);

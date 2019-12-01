@@ -26,21 +26,19 @@ public class RestaurantPage extends BasePage {
     @FindBy(css = ".custom-file-input")
     private WebElement logoRestaurant;
 
-
     @FindBy(css = "cke_editable cke_editable_themed cke_contents_ltr cke_show_borders p")
     private WebElement descRestaurantPl;
 
     @FindBy(css = "cke_editable cke_editable_themed cke_contents_ltr cke_show_borders p")
     private WebElement descRestaurantEn;
 
-
-    @FindBy(css = "#id_images-0-image")
+    @FindBy(id = "id_images-0-image")
     private WebElement promoRestaurant1;
 
-    @FindBy(css = "#id_images-1-image")
+    @FindBy(id = "id_images-1-image")
     private WebElement promoRestaurant2;
 
-    @FindBy(css = "#id_images-2-image")
+    @FindBy(id = "id_images-2-image")
     private WebElement promoRestaurant3;
 
     @FindBy(name = "left_menu")

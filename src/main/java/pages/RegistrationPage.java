@@ -20,11 +20,8 @@ public class RegistrationPage extends HomePage {
     @FindBy(id = "id_restaurant_name")
     private WebElement restaurantName;
 
-    @FindBy(xpath = "//button[@class='col-md-12 btn']")
+    @FindBy(css = ".submit-button .btn")
     private WebElement registrationButton;
-
-    @FindBy( xpath= "//div[contains(@class,'alert alert-success')]")
-    private WebElement loginAlert;
 
 
     public RegistrationPage(WebDriver driver) {

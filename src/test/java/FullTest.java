@@ -19,13 +19,13 @@ public class FullTest extends BaseTest {
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+113@milosolutions.com","milo1024","milo1");
-        registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
+        registrationPage = new RegistrationPage(driver);
+        restaurationFactory = new RestaurationFactory("epalka+133@milosolutions.com","milo1024","milo1");
         agreementPage= new AgreementPage(driver);
         restaurantPage = new RestaurantPage(driver);
         menuPage = new MenuPage(driver);
-        restaurationDataFactory = new RestaurationDataFactory("test","test","6785948345","test","test","test","test","test","test","Test","test","test","234556");
+//        restaurationDataFactory = new RestaurationDataFactory("test","test","6785948345","test","test","test","test","test","test","Test","test","test","234556");
     }
 
     @Test
@@ -33,8 +33,8 @@ public class FullTest extends BaseTest {
         homePage.goToRestauration();
         loginPage.goToRegistrationPage();
         registrationPage.addRestauration(restaurationFactory);
-        agreementPage.acceptAgreement();
-        menuPage.goToRestarant();
-        restaurantPage.fillRestaurantForm(restaurationDataFactory);
+//        agreementPage.acceptAgreement();
+//        menuPage.goToRestarant();
+//        restaurantPage.fillRestaurantForm(restaurationDataFactory);
     }
 }

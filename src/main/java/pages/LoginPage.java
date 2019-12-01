@@ -6,7 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage extends BasePage {
+
     @FindBy(css="#id_login")
     private WebElement email;
 
@@ -16,7 +19,7 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@class='col-md-12 btn']")
     private WebElement loginButton;
 
-    @FindBy(css = ".mt-4 .secondaryAction")
+    @FindBy(css = "body > div > div.row.justify-content-md-center > div > form > div.col-md-12.mt-4 > a")
     private WebElement registrationLink;
 
     @FindBy(css=".mt-3 .secondaryAction")
@@ -27,8 +30,8 @@ public class LoginPage extends BasePage {
         PageFactory.initElements(driver,this);
     }
     public void goToRegistrationPage(){
-        waitForClickableElements(By.cssSelector(".mt-4 .secondaryAction"));
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//        waitForClickableElements(By.cssSelector("body > div > div.row.justify-content-md-center > div > form > div.col-md-12.mt-4 > a"));
         registrationLink.click();
-//        waitForVisibilityElements(By.id("id_nip"));
     }
 }

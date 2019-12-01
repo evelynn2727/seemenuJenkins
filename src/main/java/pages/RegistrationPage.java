@@ -9,15 +9,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class RegistrationPage extends HomePage {
 
-    @FindBy(xpath= "//input[@name='email']")
+    @FindBy(css = "#id_email")
     private WebElement emailField;
 
-    @FindBy(id = "id_password1")
+    @FindBy(css = "#id_password1")
     private WebElement passwordFields1;
 
-    @FindBy(id = "id_password2")
+    @FindBy(css = "#id_password2")
     private WebElement passwordFields2;
 
     @FindBy(id = "id_restaurant_name")
@@ -36,12 +38,13 @@ public class RegistrationPage extends HomePage {
     }
 
     public void addRestauration(RestaurationFactory restaurationFactory){
-        WebDriverWait wait = new WebDriverWait(driver, 40);
-        WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='email']")));
-        email.click();
-        email.sendKeys("epalka@milosolutions.com");
-//        waitForVisibilityElements(By.id("id_email"));
+//        WebDriverWait wait = new WebDriverWait(driver, 40);
+//        WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
+//
 //        waitForClickableElements(By.id("id_email"));
+//
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
         emailField.click();
         emailField.sendKeys(restaurationFactory.getEmail());
         passwordFields1.click();

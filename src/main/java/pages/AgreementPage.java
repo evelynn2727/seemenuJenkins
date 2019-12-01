@@ -11,7 +11,7 @@ public class AgreementPage extends BasePage {
     @FindBy(css = ".decline-button")
     private WebElement notAgreeButton;
 
-    @FindBy(css = ".accept-button")
+    @FindBy(xpath= "/html/body/div[4]/div/a[2]")
     private WebElement agreeButton;
 
     public AgreementPage(WebDriver driver) {
@@ -20,7 +20,7 @@ public class AgreementPage extends BasePage {
     }
 
     public void acceptAgreement(){
-        waitForClickableElements(By.cssSelector(".accept-button"));
+        waitForClickableElements(By.xpath("/html/body/div[4]/div/a[2]"));
         agreeButton.click();
     }
 }

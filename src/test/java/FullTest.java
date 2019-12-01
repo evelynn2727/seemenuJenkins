@@ -1,6 +1,4 @@
-import models.BaseTest;
-import models.RestaurationDataFactory;
-import models.RestaurationFactory;
+import models.*;
 import org.junit.Before;
 import org.junit.Test;
 import pages.*;
@@ -15,17 +13,25 @@ public class FullTest extends BaseTest {
     private RestaurantPage restaurantPage;
     private MenuPage menuPage;
     private RestaurationDataFactory restaurationDataFactory;
+    private CategoryPage categoryPage;
+    private CategoryFactory categoryFactory;
+    private DishPage dishPage;
+    private DishFactory dishFactory;
 
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+152@milosolutions.com","milo1024","milo1");
+        restaurationFactory = new RestaurationFactory("epalka+164@milosolutions.com","milo1024","milo1");
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         agreementPage= new AgreementPage(driver);
         restaurantPage = new RestaurantPage(driver);
         menuPage = new MenuPage(driver);
-        restaurationDataFactory = new RestaurationDataFactory("test","test","6785948345","test","test","test","test","test","test","Test","test","test","234556");
+        restaurationDataFactory = new RestaurationDataFactory("test","test","678594834","test","test","test","test","test","test","Test","test","test","234556");
+        categoryPage = new CategoryPage(driver);
+        categoryFactory = new CategoryFactory("category1", "Category1");
+        dishFactory = new DishFactory("danie","dish", "lorem ipsum1","lorem ipsum2", "Test","Test","Test");
+        dishPage = new DishPage(driver);
     }
 
     @Test
@@ -36,5 +42,10 @@ public class FullTest extends BaseTest {
         agreementPage.acceptAgreement();
         menuPage.goToRestarant();
         restaurantPage.fillRestaurantForm(restaurationDataFactory);
+        menuPage.goToCategory();
+        categoryPage.fillCategoryForm(categoryFactory);
+        menuPage.goToDish();
+        dishPage.createNewDish();
+        dishPage.fillDishForm(dishFactory);
     }
 }

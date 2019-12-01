@@ -32,12 +32,20 @@ public class MenuPage extends BasePage {
     }
 
     public void goToCategory() {
-        waitForVisibilityElements(categoryItem);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         categoryItem.click();
     }
 
     public void goToDish(){
-        waitForVisibilityElements(dishItem);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         dishItem.click();
     }
 

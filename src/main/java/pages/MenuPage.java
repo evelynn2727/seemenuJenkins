@@ -59,7 +59,11 @@ public class MenuPage extends BasePage {
     }
 
     public void goToWaiter(){
-        waitForVisibilityElements(waiterItem);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         waiterItem.click();
     }
     public void logOut(){

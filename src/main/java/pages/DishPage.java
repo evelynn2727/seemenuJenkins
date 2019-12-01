@@ -32,7 +32,7 @@ public class DishPage extends BasePage {
     @FindBy(id = "id_description_en")
     private WebElement descDishen;
 
-    @FindBy(xpath = "//div[@class='dish-tag white-tag']")
+    @FindBy(css = ".dish-tags .dish-tag")
     private List<WebElement> tags;
 
     @FindBy(id = "id_images-0-image")
@@ -44,7 +44,7 @@ public class DishPage extends BasePage {
     @FindBy(id = "id_images-2-image")
     private WebElement photoDish3;
 
-    @FindBy(className = "btn")
+    @FindBy(css = "div.submit-item-btn > .btn")
     private WebElement saveDishButton;
 
     public DishPage(WebDriver driver) {
@@ -87,6 +87,12 @@ public class DishPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(descDishen));
         descDishen.sendKeys(dishFactory.getEnglishDescription());
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         int count=tags.size();
         int numberTags = randomTags.nextInt(4);
         int index=0;
@@ -113,7 +119,18 @@ public class DishPage extends BasePage {
         photoDish3.sendKeys(dishFile3.getAbsolutePath());
         // wait.until(ExpectedConditions.elementToBeClickable(saveDishButton));
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         saveDishButton.click();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         wait.until(ExpectedConditions.elementToBeClickable(createNewDish));
     }
 

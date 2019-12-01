@@ -17,11 +17,13 @@ public class FullTest extends BaseTest {
     private CategoryFactory categoryFactory;
     private DishPage dishPage;
     private DishFactory dishFactory;
+    private WaitersFactory waitersFactory;
+    private WaitersPage waitersPage;
 
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+164@milosolutions.com","milo1024","milo1");
+        restaurationFactory = new RestaurationFactory("epalka+172@milosolutions.com","milo1024","milo1");
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         agreementPage= new AgreementPage(driver);
@@ -32,6 +34,8 @@ public class FullTest extends BaseTest {
         categoryFactory = new CategoryFactory("category1", "Category1");
         dishFactory = new DishFactory("danie","dish", "lorem ipsum1","lorem ipsum2", "Test","Test","Test");
         dishPage = new DishPage(driver);
+        waitersPage = new WaitersPage(driver);
+        waitersFactory = new WaitersFactory("kelner","waiter","lorem ipsum","lorem ipsum","test","test","test");
     }
 
     @Test
@@ -47,5 +51,8 @@ public class FullTest extends BaseTest {
         menuPage.goToDish();
         dishPage.createNewDish();
         dishPage.fillDishForm(dishFactory);
+        menuPage.goToWaiter();
+        waitersPage.createNewWaiter();
+        waitersPage.fillForm(waitersFactory);
     }
 }

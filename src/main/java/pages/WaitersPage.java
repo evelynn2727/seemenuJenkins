@@ -43,7 +43,13 @@ public class WaitersPage extends BasePage {
     }
 
     public void createNewWaiter(){
-        wait.until(ExpectedConditions.elementToBeClickable(addWaiterButton));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//        wait.until(ExpectedConditions.elementToBeClickable(addWaiterButton));
         addWaiterButton.click();
     }
 
@@ -54,15 +60,15 @@ public class WaitersPage extends BasePage {
             e.printStackTrace();
         }
 
-        wait.until(ExpectedConditions.elementToBeClickable(nameWaiterpl));
+//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiterpl));
         nameWaiterpl.sendKeys(waitersFactory.getPolishNameWaiter());
-        wait.until(ExpectedConditions.elementToBeClickable(nameWaiteren));
+//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiteren));
         nameWaiteren.sendKeys(waitersFactory.getEnglishNameWaiter());
 
-        wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
+//        wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
         descWaiterpl = driver.findElement(By.id("id_description_pl"));
         descWaiterpl.sendKeys(waitersFactory.getPolishDescriptionWaiter());
-        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
+//        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
         descWaiteren = driver.findElement(By.id("id_description_en"));
         descWaiteren.sendKeys(waitersFactory.getEnglishDescriptionWaiter());
 
@@ -78,7 +84,6 @@ public class WaitersPage extends BasePage {
         File waiterFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
         waiterPhoto2.sendKeys(waiterFile2.getAbsolutePath());
 
-//        saveWaiterButton = driver.findElement(By.xpath("(//button[@type='submit'])[3]"));
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

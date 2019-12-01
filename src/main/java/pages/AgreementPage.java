@@ -1,17 +1,12 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AgreementPage extends BasePage {
-
-    @FindBy(css = ".decline-button")
-    private WebElement notAgreeButton;
-
-    @FindBy(xpath= "/html/body/div[4]/div/a[2]")
+    @FindBy(css= ".agreement-buttons .accept-button")
     private WebElement agreeButton;
 
     public AgreementPage(WebDriver driver) {
@@ -20,7 +15,11 @@ public class AgreementPage extends BasePage {
     }
 
     public void acceptAgreement(){
-        waitForClickableElements(By.xpath("/html/body/div[4]/div/a[2]"));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         agreeButton.click();
     }
 }

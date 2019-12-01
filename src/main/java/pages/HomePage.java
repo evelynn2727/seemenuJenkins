@@ -16,6 +16,7 @@ public class HomePage extends BasePage {
     }
 
     public void goToRestauration(){
+        waitForVisibilityElements(restaurationButton);
         restaurationButton.click();
     }
 }

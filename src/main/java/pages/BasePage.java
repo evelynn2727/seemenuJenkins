@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public abstract class BasePage {
     public WebDriver driver;
     protected WebDriverWait wait;
@@ -19,8 +18,8 @@ public abstract class BasePage {
         this.actions = new Actions(driver);
     }
 
-    protected void waitForVisibilityElements(By by) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    protected void waitForVisibilityElements(WebElement webElement) {
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
     protected void waitForClickableElements(By by) {

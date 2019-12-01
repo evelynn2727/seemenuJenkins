@@ -1,25 +1,20 @@
 package pages;
 
 import models.RestaurationFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
 
 public class RegistrationPage extends HomePage {
 
-    @FindBy(css = "#id_email")
+    @FindBy(id= "id_email")
     private WebElement emailField;
 
-    @FindBy(css = "#id_password1")
+    @FindBy(id = "id_password1")
     private WebElement passwordFields1;
 
-    @FindBy(css = "#id_password2")
+    @FindBy(id = "id_password2")
     private WebElement passwordFields2;
 
     @FindBy(id = "id_restaurant_name")
@@ -38,13 +33,7 @@ public class RegistrationPage extends HomePage {
     }
 
     public void addRestauration(RestaurationFactory restaurationFactory){
-//        WebDriverWait wait = new WebDriverWait(driver, 40);
-//        WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
-//
-//        waitForClickableElements(By.id("id_email"));
-//
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
+        waitForVisibilityElements(emailField);
         emailField.click();
         emailField.sendKeys(restaurationFactory.getEmail());
         passwordFields1.click();

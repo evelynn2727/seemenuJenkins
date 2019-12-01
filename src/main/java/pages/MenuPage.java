@@ -1,24 +1,22 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MenuPage extends BasePage {
 
-    @FindBy(css = "#navbar-main > ul > li:nth-child(2) > a")
+    @FindBy(css = ".navbar-nav li:nth-child(2)")
     private WebElement categoryItem;
 
-    @FindBy(css = "#navbar-main > ul > li:nth-child(3) > a")
+    @FindBy(css = ".navbar-nav li:nth-child(3)")
     private WebElement dishItem;
 
-    @FindBy(css = "#navbar-main > ul > li:nth-child(4) > a")
+    @FindBy(css = ".navbar-nav li:nth-child(4)")
     private WebElement restaurationItem;
 
-    @FindBy(css = "#navbar-main > ul > li:nth-child(5) > a")
+    @FindBy(css = ".navbar-nav li:nth-child(5)")
     private WebElement waiterItem;
 
     @FindBy(css = "#dropdownMenuLink")
@@ -34,28 +32,32 @@ public class MenuPage extends BasePage {
     }
 
     public void goToCategory() {
-        waitForClickableElements(By.cssSelector("#navbar-main > ul > li:nth-child(2) > a"));
+        waitForVisibilityElements(categoryItem);
         categoryItem.click();
     }
 
     public void goToDish(){
-        waitForClickableElements(By.cssSelector("#navbar-main > ul > li:nth-child(3) > a"));
+        waitForVisibilityElements(dishItem);
         dishItem.click();
     }
 
     public void goToRestarant(){
-        waitForClickableElements(By.cssSelector("#navbar-main > ul > li:nth-child(4) > a"));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         restaurationItem.click();
     }
 
     public void goToWaiter(){
-        waitForClickableElements(By.cssSelector("#navbar-main > ul > li:nth-child(5) > a"));
+        waitForVisibilityElements(waiterItem);
         waiterItem.click();
     }
     public void logOut(){
-        wait.until(ExpectedConditions.elementToBeClickable(logoutTray));
+        waitForVisibilityElements(logoutTray);
         logoutTray.click();
-        wait.until(ExpectedConditions.elementToBeClickable(logout));
+        waitForVisibilityElements(logout);
         logout.click();
     }
 }

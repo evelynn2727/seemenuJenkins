@@ -60,7 +60,7 @@ public class RestaurantPage extends BasePage {
         PageFactory.initElements(driver,this);
     }
     public void fillRestaurantForm(RestaurationDataFactory restaurationDataFactory){
-//        waitForClickableElements(By.id("id_city"));
+        waitForVisibilityElements(nameCity);
         nameCity.sendKeys(restaurationDataFactory.getNameCity());
         nameStreet.sendKeys(restaurationDataFactory.getNameStreet());
         phoneNumbers.sendKeys(restaurationDataFactory.getPhoneNumbers());

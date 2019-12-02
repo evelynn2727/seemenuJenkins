@@ -28,7 +28,7 @@ public class WaitersPage extends BasePage {
     @FindBy(id = "id_description_en")
     private WebElement descWaiteren;
 
-    @FindBy(id = "id_images-0-image")
+    @FindBy(css= "#id_images-0-image")
     private WebElement waiterPhoto1;
 
     @FindBy(id = "id_images-1-image")
@@ -65,10 +65,10 @@ public class WaitersPage extends BasePage {
 //        wait.until(ExpectedConditions.elementToBeClickable(nameWaiteren));
         nameWaiteren.sendKeys(waitersFactory.getEnglishNameWaiter());
 
-//        wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
+        wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
         descWaiterpl = driver.findElement(By.id("id_description_pl"));
         descWaiterpl.sendKeys(waitersFactory.getPolishDescriptionWaiter());
-//        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
+        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
         descWaiteren = driver.findElement(By.id("id_description_en"));
         descWaiteren.sendKeys(waitersFactory.getEnglishDescriptionWaiter());
 
@@ -78,27 +78,27 @@ public class WaitersPage extends BasePage {
             e.printStackTrace();
         }
 
-        File waiterFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        waiterPhoto1.sendKeys(waiterFile1.getAbsolutePath());
-
-        File waiterFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        waiterPhoto2.sendKeys(waiterFile2.getAbsolutePath());
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        saveWaiterButton.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        File waiterFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+//        waiterPhoto1.sendKeys(waiterFile1.getAbsolutePath());
+//
+//        File waiterFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+//        waiterPhoto2.sendKeys(waiterFile2.getAbsolutePath());
+//
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        saveWaiterButton.click();
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
     private int randomImage() {
         Random random = new Random();
-        return random.nextInt(16) + 1;
+        return random.nextInt(18) + 1;
     }
 }

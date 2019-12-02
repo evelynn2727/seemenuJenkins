@@ -111,12 +111,12 @@ public class DishPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish1));
-        photoDish1.sendKeys(dishFile1.getAbsolutePath());
-        //   wait.until(ExpectedConditions.elementToBeClickable(photoDish2));
-        photoDish2.sendKeys(dishFile2.getAbsolutePath());
-        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish3));
-        photoDish3.sendKeys(dishFile3.getAbsolutePath());
+//          wait.until(ExpectedConditions.elementToBeClickable(photoDish1));
+//        photoDish1.sendKeys(dishFile1.getAbsolutePath());
+//           wait.until(ExpectedConditions.elementToBeClickable(photoDish2));
+//        photoDish2.sendKeys(dishFile2.getAbsolutePath());
+//          wait.until(ExpectedConditions.elementToBeClickable(photoDish3));
+//        photoDish3.sendKeys(dishFile3.getAbsolutePath());
         // wait.until(ExpectedConditions.elementToBeClickable(saveDishButton));
 
         try {
@@ -137,6 +137,6 @@ public class DishPage extends BasePage {
 
     private int randomImage(){
         Random random = new Random();
-        return random.nextInt(16) + 1;
+        return random.nextInt(18) + 1;
     }
 }

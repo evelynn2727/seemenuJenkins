@@ -19,7 +19,7 @@ public class FullTest extends BaseTest {
     private DishFactory dishFactory;
     private WaitersFactory waitersFactory;
     private WaitersPage waitersPage;
-
+//bum bm
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);

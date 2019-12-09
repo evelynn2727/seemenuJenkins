@@ -19,11 +19,11 @@ public class FullTest extends BaseTest {
     private DishFactory dishFactory;
     private WaitersFactory waitersFactory;
     private WaitersPage waitersPage;
-
+//bum bm
     @Before
     public void checkoutSetUp(){
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+177@milosolutions.com","milo1024","milo1");
+        restaurationFactory = new RestaurationFactory("epalka+201@milosolutions.com","milo1024","milo1");
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         agreementPage= new AgreementPage(driver);

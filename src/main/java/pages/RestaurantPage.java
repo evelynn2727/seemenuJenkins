@@ -116,6 +116,6 @@ public class RestaurantPage extends BasePage {
 
     private int randomImage() {
         Random random = new Random();
-        return random.nextInt(16) + 1;
+        return random.nextInt(18) + 1;
     }
 }

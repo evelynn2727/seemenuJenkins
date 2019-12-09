@@ -30,15 +30,27 @@ public class RegistrationPage extends HomePage {
     }
 
     public void addRestauration(RestaurationFactory restaurationFactory){
-        waitForVisibilityElements(emailField);
-        emailField.click();
-        emailField.sendKeys(restaurationFactory.getEmail());
+       addRestaurantEmail(restaurationFactory);
+       addRestaurantPasswords(restaurationFactory);
+       addRestaurantName(restaurationFactory);
+       registrationButton.click();
+    }
+
+    private void addRestaurantName(RestaurationFactory restaurationFactory){
+        restaurantName.click();
+        restaurantName.sendKeys(restaurationFactory.getRestaurationName());
+    }
+
+    private void addRestaurantPasswords(RestaurationFactory restaurationFactory){
         passwordFields1.click();
         passwordFields1.sendKeys(restaurationFactory.getPassword());
         passwordFields2.click();
         passwordFields2.sendKeys(restaurationFactory.getPassword());
-        restaurantName.click();
-        restaurantName.sendKeys(restaurationFactory.getRestaurationName());
-        registrationButton.click();
+    }
+
+    private void addRestaurantEmail(RestaurationFactory restaurationFactory){
+        waitForVisibilityElements(emailField);
+        emailField.click();
+        emailField.sendKeys(restaurationFactory.getEmail());
     }
 }

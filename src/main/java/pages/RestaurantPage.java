@@ -58,14 +58,47 @@ public class RestaurantPage extends BasePage {
         PageFactory.initElements(driver,this);
     }
     public void fillRestaurantForm(RestaurationDataFactory restaurationDataFactory){
+        addRestautantData(restaurationDataFactory);
+        addLogoImage();
+        addRestaurantPromoPhotos();
+        saveRestaurantButton.click();
+    }
+
+    private void addLogoImage(){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='custom-file']//div)[1]"))); //waiting on logo button
+        File logoFile = new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        logoRestaurant.sendKeys(logoFile.getAbsolutePath());
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-image-id='0']"))); //waiting on promo photo 1
+    }
+
+    private void addRestaurantPromoPhotos(){
+        File promoFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        promoRestaurant1.sendKeys(promoFile1.getAbsolutePath());
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='1']"))); //waiting on promo photo 2
+
+        File promoFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        promoRestaurant2.sendKeys(promoFile2.getAbsolutePath());
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='2']")));//waiting on promo photo 3
+
+        File promoFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        promoRestaurant3.sendKeys(promoFile3.getAbsolutePath());
+        wait.until(ExpectedConditions.elementToBeClickable(saveRestaurantButton));
+    }
+
+    private void addBasicData(RestaurationDataFactory restaurationDataFactory){
         waitForVisibilityElements(nameCity);
         nameCity.sendKeys(restaurationDataFactory.getNameCity());
         nameStreet.sendKeys(restaurationDataFactory.getNameStreet());
         phoneNumbers.sendKeys(restaurationDataFactory.getPhoneNumbers());
+    }
+
+    private void addBillingData(RestaurationDataFactory restaurationDataFactory){
         billingRestaurationName.sendKeys(restaurationDataFactory.getBillingRestaurationName());
         billingRestaurationAddress.sendKeys(restaurationDataFactory.getBillingRestaurationAddress());
         billingNIP.sendKeys(restaurationDataFactory.getBillingNIP());
+    }
 
+    private void addRestaurantDescription(RestaurationDataFactory restaurationDataFactory){
         List<WebElement> descRestaurant = driver.findElements(By.tagName("iframe"));
         driver.switchTo().frame(descRestaurant.get(0));
         driver.findElement(By.xpath("html/body/p")).sendKeys(restaurationDataFactory.getDescRestaurantPl());
@@ -73,25 +106,12 @@ public class RestaurantPage extends BasePage {
         driver.switchTo().frame(descRestaurant.get(1));
         driver.findElement(By.xpath("html/body/p")).sendKeys(restaurationDataFactory.getDescRestaurantEn());
         driver.switchTo().defaultContent();
+    }
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='custom-file']//div)[1]"))); //logo button
-        File logoFile = new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        File promoFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        File promoFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        File promoFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-
-        logoRestaurant.sendKeys(logoFile.getAbsolutePath());
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@data-image-id='0']"))); //promo photo 1
-
-        promoRestaurant1.sendKeys(promoFile1.getAbsolutePath());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='1']"))); //promo photo 2
-
-        promoRestaurant2.sendKeys(promoFile2.getAbsolutePath());
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='2']")));//ppromo photo 3
-
-        promoRestaurant3.sendKeys(promoFile3.getAbsolutePath());
-        wait.until(ExpectedConditions.elementToBeClickable(saveRestaurantButton));
-        saveRestaurantButton.click();
+    private void addRestautantData(RestaurationDataFactory restaurationDataFactory){
+        addBasicData(restaurationDataFactory);
+        addBillingData(restaurationDataFactory);
+        addRestaurantDescription(restaurationDataFactory);
     }
 
     private int randomImage() {

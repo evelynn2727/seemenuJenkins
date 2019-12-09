@@ -75,17 +75,8 @@ public class DishPage extends BasePage {
             e.printStackTrace();
         }
 
-        wait.until(ExpectedConditions.elementToBeClickable(dishNamepl));
-        dishNamepl.sendKeys(dishFactory.getPolishDishName());
-
-        wait.until(ExpectedConditions.elementToBeClickable(dishNameen));
-        dishNameen.sendKeys(dishFactory.getEnglishDishName());
-
-        wait.until(ExpectedConditions.elementToBeClickable(descDishpl));
-        descDishpl.sendKeys(dishFactory.getPolishDescription());
-
-        wait.until(ExpectedConditions.elementToBeClickable(descDishen));
-        descDishen.sendKeys(dishFactory.getEnglishDescription());
+        addDishName(dishFactory);
+        addDishDescription(dishFactory);
 
         try {
             Thread.sleep(3000);
@@ -93,31 +84,8 @@ public class DishPage extends BasePage {
             e.printStackTrace();
         }
 
-        int count=tags.size();
-        int numberTags = randomTags.nextInt(4);
-        int index=0;
-
-        while(index < numberTags){
-            tags.get(index).click();
-            index++;
-        }
-
-        File dishFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        File dishFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        File dishFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish1));
-        photoDish1.sendKeys(dishFile1.getAbsolutePath());
-        //   wait.until(ExpectedConditions.elementToBeClickable(photoDish2));
-        photoDish2.sendKeys(dishFile2.getAbsolutePath());
-        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish3));
-        photoDish3.sendKeys(dishFile3.getAbsolutePath());
-        // wait.until(ExpectedConditions.elementToBeClickable(saveDishButton));
+        addDishTags();
+        addDishPhotos();
 
         try {
             Thread.sleep(3000);
@@ -134,6 +102,53 @@ public class DishPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(createNewDish));
     }
 
+    private void addDishPhotos(){
+        File dishFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        File dishFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        File dishFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish1));
+        photoDish1.sendKeys(dishFile1.getAbsolutePath());
+        //   wait.until(ExpectedConditions.elementToBeClickable(photoDish2));
+        photoDish2.sendKeys(dishFile2.getAbsolutePath());
+        //  wait.until(ExpectedConditions.elementToBeClickable(photoDish3));
+        photoDish3.sendKeys(dishFile3.getAbsolutePath());
+        // wait.until(ExpectedConditions.elementToBeClickable(saveDishButton));
+    }
+
+    private void addDishTags(){
+        int count=tags.size();
+        int numberTags = randomTags.nextInt(4);
+        int index=0;
+
+        while(index < numberTags){
+            tags.get(index).click();
+            index++;
+        }
+
+    }
+
+    private void addDishDescription(DishFactory dishFactory){
+        wait.until(ExpectedConditions.elementToBeClickable(descDishpl));
+        descDishpl.sendKeys(dishFactory.getPolishDescription());
+
+        wait.until(ExpectedConditions.elementToBeClickable(descDishen));
+        descDishen.sendKeys(dishFactory.getEnglishDescription());
+    }
+
+    private void addDishName(DishFactory dishFactory){
+        wait.until(ExpectedConditions.elementToBeClickable(dishNamepl));
+        dishNamepl.sendKeys(dishFactory.getPolishDishName());
+
+        wait.until(ExpectedConditions.elementToBeClickable(dishNameen));
+        dishNameen.sendKeys(dishFactory.getEnglishDishName());
+    }
 
     private int randomImage(){
         Random random = new Random();

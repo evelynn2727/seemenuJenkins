@@ -41,12 +41,16 @@ public class CategoryPage extends BasePage {
             e.printStackTrace();
         }
 
+        addCategory(categoryFactory);
+
+        createCategoryButton.click();
+    }
+
+    private void addCategory(CategoryFactory categoryFactory){
         categoryNamePl.click();
         categoryNamePl.sendKeys(categoryFactory.getPolishNameCategory());
 
         categoryNameEn.click();
         categoryNameEn.sendKeys(categoryFactory.getEnglishNameCategory());
-
-        createCategoryButton.click();
     }
 }

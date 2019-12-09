@@ -60,17 +60,7 @@ public class WaitersPage extends BasePage {
             e.printStackTrace();
         }
 
-//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiterpl));
-        nameWaiterpl.sendKeys(waitersFactory.getPolishNameWaiter());
-//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiteren));
-        nameWaiteren.sendKeys(waitersFactory.getEnglishNameWaiter());
-
-//        wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
-        descWaiterpl = driver.findElement(By.id("id_description_pl"));
-        descWaiterpl.sendKeys(waitersFactory.getPolishDescriptionWaiter());
-//        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
-        descWaiteren = driver.findElement(By.id("id_description_en"));
-        descWaiteren.sendKeys(waitersFactory.getEnglishDescriptionWaiter());
+        addWaiterData(waitersFactory);
 
         try {
             Thread.sleep(3000);
@@ -78,11 +68,7 @@ public class WaitersPage extends BasePage {
             e.printStackTrace();
         }
 
-        File waiterFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        waiterPhoto1.sendKeys(waiterFile1.getAbsolutePath());
-
-        File waiterFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
-        waiterPhoto2.sendKeys(waiterFile2.getAbsolutePath());
+        addWaiterPhotos();
 
         try {
             Thread.sleep(3000);
@@ -97,6 +83,37 @@ public class WaitersPage extends BasePage {
         }
 
     }
+
+    private void addWaiterData(WaitersFactory waitersFactory){
+        addWaiterName(waitersFactory);
+        addWaiterDescription(waitersFactory);
+    }
+
+    private void addWaiterName(WaitersFactory waitersFactory){
+//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiterpl));
+        nameWaiterpl.sendKeys(waitersFactory.getPolishNameWaiter());
+//        wait.until(ExpectedConditions.elementToBeClickable(nameWaiteren));
+        nameWaiteren.sendKeys(waitersFactory.getEnglishNameWaiter());
+
+    }
+
+    private void addWaiterDescription(WaitersFactory waitersFactory){
+        //wait.until(ExpectedConditions.elementToBeClickable(descWaiterpl));
+        descWaiterpl = driver.findElement(By.id("id_description_pl"));
+        descWaiterpl.sendKeys(waitersFactory.getPolishDescriptionWaiter());
+//        wait.until(ExpectedConditions.elementToBeClickable(descWaiteren));
+        descWaiteren = driver.findElement(By.id("id_description_en"));
+        descWaiteren.sendKeys(waitersFactory.getEnglishDescriptionWaiter());
+    }
+
+    private void addWaiterPhotos(){
+        File waiterFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        waiterPhoto1.sendKeys(waiterFile1.getAbsolutePath());
+
+        File waiterFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        waiterPhoto2.sendKeys(waiterFile2.getAbsolutePath());
+    }
+
     private int randomImage() {
         Random random = new Random();
         return random.nextInt(16) + 1;

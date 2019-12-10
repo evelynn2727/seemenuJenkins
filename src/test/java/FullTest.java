@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import models.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,23 +20,24 @@ public class FullTest extends BaseTest {
     private DishFactory dishFactory;
     private WaitersFactory waitersFactory;
     private WaitersPage waitersPage;
-//bum bm
+
     @Before
     public void checkoutSetUp(){
+        FakerData fakerData = new FakerData();
         homePage = new HomePage(driver);
-        restaurationFactory = new RestaurationFactory("epalka+201@milosolutions.com","milo1024","milo1");
+        restaurationFactory = new RestaurationFactory(fakerData.email,fakerData.password,fakerData.restaurationName);
         registrationPage = new RegistrationPage(driver);
         loginPage = new LoginPage(driver);
         agreementPage= new AgreementPage(driver);
         restaurantPage = new RestaurantPage(driver);
         menuPage = new MenuPage(driver);
-        restaurationDataFactory = new RestaurationDataFactory("test","test","678594834","test","test","test","test","test","test","Test","test","test","234556");
+        restaurationDataFactory = new RestaurationDataFactory(fakerData.city,fakerData.street,fakerData.phoneNumber,fakerData.plRestaurantDescription,fakerData.enRestaurantDescription,fakerData.restaurationName,fakerData.address,fakerData.nip);
         categoryPage = new CategoryPage(driver);
-        categoryFactory = new CategoryFactory("category1", "Category1");
-        dishFactory = new DishFactory("danie","dish", "lorem ipsum1","lorem ipsum2", "Test","Test","Test");
+        categoryFactory = new CategoryFactory(fakerData.plCategoryName, fakerData.enCategoryName);
+        dishFactory = new DishFactory(fakerData.plDishName,fakerData.enDishName, fakerData.plDishDescription,fakerData.enDishDescription);
         dishPage = new DishPage(driver);
         waitersPage = new WaitersPage(driver);
-        waitersFactory = new WaitersFactory("kelner","waiter","lorem ipsum","lorem ipsum","test","test","test");
+        waitersFactory = new WaitersFactory(fakerData.plWaiterName,fakerData.enWaiterName,fakerData.plWaiterDescription,fakerData.enWaiterDescription);
     }
 
     @Test

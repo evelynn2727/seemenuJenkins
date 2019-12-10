@@ -67,6 +67,11 @@
 </build>
 
 <dependencies>
+    <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.1</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
         <groupId>junit</groupId>

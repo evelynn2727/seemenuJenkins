@@ -16,7 +16,7 @@ public class MenuPage extends BasePage {
     @FindBy(css = ".navbar-nav li:nth-child(4)")
     private WebElement restaurationItem;
 
-    @FindBy(css = ".navbar-nav li:nth-child(5)")
+    @FindBy(css = ".navbar-nav li:nth-child(5) a")
     private WebElement waiterItem;
 
     @FindBy(id = "dropdownMenuLink")

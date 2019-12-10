@@ -1,5 +1,6 @@
 package pages;
 
+import configuration.ConfigController;
 import models.RestaurationFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,6 +35,7 @@ public class RegistrationPage extends HomePage {
        addRestaurantPasswords(restaurationFactory);
        addRestaurantName(restaurationFactory);
        registrationButton.click();
+        ConfigController.updateUserId();
     }
 
     private void addRestaurantName(RestaurationFactory restaurationFactory){

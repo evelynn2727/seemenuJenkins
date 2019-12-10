@@ -73,14 +73,17 @@ public class RestaurantPage extends BasePage {
 
     private void addRestaurantPromoPhotos(){
         File promoFile1=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        File promoFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+        File promoFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+
         promoRestaurant1.sendKeys(promoFile1.getAbsolutePath());
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='1']"))); //waiting on promo photo 2
 
-        File promoFile2=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+
         promoRestaurant2.sendKeys(promoFile2.getAbsolutePath());
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-image-id='2']")));//waiting on promo photo 3
 
-        File promoFile3=  new File("src/main/data/images/image_" + randomImage()+ ".jpg");
+
         promoRestaurant3.sendKeys(promoFile3.getAbsolutePath());
         wait.until(ExpectedConditions.elementToBeClickable(saveRestaurantButton));
     }
@@ -116,6 +119,6 @@ public class RestaurantPage extends BasePage {
 
     private int randomImage() {
         Random random = new Random();
-        return random.nextInt(18) + 1;
+        return random.nextInt(16) + 1;
     }
 }

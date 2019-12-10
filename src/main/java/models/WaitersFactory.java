@@ -9,14 +9,11 @@ public class WaitersFactory {
     private String photoWaiter2;
     private String photoWaiter3;
 
-    public WaitersFactory(String polishNameWaiter, String englishNameWaiter, String polishDescriptionWaiter, String englishDescriptionWaiter, String photoWaiter1, String photoWaiter2, String photoWaiter3) {
+    public WaitersFactory(String polishNameWaiter, String englishNameWaiter, String polishDescriptionWaiter, String englishDescriptionWaiter) {
         this.polishNameWaiter = polishNameWaiter;
         this.englishNameWaiter = englishNameWaiter;
         this.polishDescriptionWaiter = polishDescriptionWaiter;
         this.englishDescriptionWaiter = englishDescriptionWaiter;
-        this.photoWaiter1 = photoWaiter1;
-        this.photoWaiter2 = photoWaiter2;
-        this.photoWaiter3 = photoWaiter3;
     }
 
     public String getPolishNameWaiter() {

@@ -5,9 +5,13 @@ import java.util.Properties;
 
 public class ConfigController {
 
-    public static String readUserId(){
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\users.properties")) {
 
+    public static String readUserId(){
+//       File pathUser = new File("src/main/configuration/users.properties");
+//        try (InputStream input = new FileInputStream(pathUser.getAbsolutePath())) {
+//        String localDir = System.getProperty("user.dir");
+//        File file = new File(localDir + "\\config.properties");
+            try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\users.properties")) {
             Properties properties = new Properties();
             properties.load(input);
 
@@ -20,8 +24,7 @@ public class ConfigController {
 
     public static void updateUserId(){
         String value =null;
-
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\users.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\users.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -31,7 +34,7 @@ public class ConfigController {
             ex.printStackTrace();
         }
 
-        try (OutputStream output = new FileOutputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\users.properties")) {
+        try (OutputStream output = new FileOutputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\users.properties")) {
 
             Properties prop = new Properties();
 
@@ -50,7 +53,7 @@ public class ConfigController {
 
 
     public static String readNameCategory(String key){
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\category.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\category.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -67,7 +70,7 @@ public class ConfigController {
     public static void updateCategoryId() {
         String value =null;
 
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\category.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\category.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -77,7 +80,7 @@ public class ConfigController {
             ex.printStackTrace();
         }
 
-        try (OutputStream output = new FileOutputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\category.properties")) {
+        try (OutputStream output = new FileOutputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\category.properties")) {
 
             Properties prop = new Properties();
 
@@ -95,7 +98,7 @@ public class ConfigController {
 
 
     public static String readDishId(){
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\dish.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\dish.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -110,7 +113,7 @@ public class ConfigController {
     public static void updateDishId() {
         String value =null;
 
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\dish.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\dish.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -120,7 +123,7 @@ public class ConfigController {
             ex.printStackTrace();
         }
 
-        try (OutputStream output = new FileOutputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\dish.properties")) {
+        try (OutputStream output = new FileOutputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\dish.properties")) {
 
             Properties prop = new Properties();
 
@@ -139,7 +142,9 @@ public class ConfigController {
 
 
     public static String readWaiterId(){
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\waiters.properties")) {
+        String localDir = System.getProperty("user.dir");
+        File file = new File(localDir + "\\config.properties");
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\waiters.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -154,7 +159,7 @@ public class ConfigController {
     public static void updateWaiterId() {
         String value =null;
 
-        try (InputStream input = new FileInputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\waiters.properties")) {
+        try (InputStream input = new FileInputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\waiters.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);
@@ -164,7 +169,7 @@ public class ConfigController {
             ex.printStackTrace();
         }
 
-        try (OutputStream output = new FileOutputStream("C:\\Users\\eweli\\OneDrive\\Dokumenty\\seemenu\\src\\main\\java\\configuration\\waiters.properties")) {
+        try (OutputStream output = new FileOutputStream("C:\\Users\\MiloQA\\Documents\\Automatic testing\\seemenu\\seemenu\\seemenuJenkins\\src\\main\\java\\configuration\\waiters.properties")) {
 
             Properties prop = new Properties();
 

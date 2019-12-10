@@ -13,7 +13,7 @@ public class FakerData {
 
     public static String city = faker.address().city();
     public static String street = faker.address().streetName();
-    public static String phoneNumber = faker.numerify("#########");
+    public static String phoneNumber = faker.numerify("5########");
 
     public static String plRestaurantDescription = faker.lorem().words(30).toString();
     public static String enRestaurantDescription = faker.lorem().words(30).toString();

@@ -3,6 +3,7 @@ package models;
 import com.github.javafaker.Faker;
 import configuration.ConfigController;
 
+
 public class FakerData {
     public static Faker faker = new Faker();
 

@@ -84,7 +84,6 @@ public class ConfigController {
             int result = Integer.parseInt(value);
             result++;
 
-
             prop.setProperty("category", Integer.toString(result));
 
             prop.store(output, null);

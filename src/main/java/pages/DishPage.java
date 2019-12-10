@@ -1,5 +1,6 @@
 package pages;
 
+import configuration.ConfigController;
 import models.DishFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -100,6 +101,7 @@ public class DishPage extends BasePage {
             e.printStackTrace();
         }
         wait.until(ExpectedConditions.elementToBeClickable(createNewDish));
+        ConfigController.updateDishId();
     }
 
     private void addDishPhotos(){
@@ -120,6 +122,8 @@ public class DishPage extends BasePage {
         //  wait.until(ExpectedConditions.elementToBeClickable(photoDish3));
         photoDish3.sendKeys(dishFile3.getAbsolutePath());
         // wait.until(ExpectedConditions.elementToBeClickable(saveDishButton));
+
+
     }
 
     private void addDishTags(){

@@ -1,4 +1,6 @@
 import com.github.javafaker.Faker;
+import configuration.ConfigController;
+import configuration.DefaultTestData;
 import models.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,13 +50,38 @@ public class FullTest extends BaseTest {
         agreementPage.acceptAgreement();
         menuPage.goToRestarant();
         restaurantPage.fillRestaurantForm(restaurationDataFactory);
+
         menuPage.goToCategory();
-        categoryPage.fillCategoryForm(categoryFactory);
+        addCategories();
+
         menuPage.goToDish();
-        dishPage.createNewDish();
-        dishPage.fillDishForm(dishFactory);
+        addDishes();
+
         menuPage.goToWaiter();
-        waitersPage.createNewWaiter();
-        waitersPage.fillForm(waitersFactory);
+        addWaiters();
+    }
+
+    private void addWaiters(){
+        for(int i = 0; i < DefaultTestData.MaX_WAITER; i++){
+            waitersPage.createNewWaiter();
+            waitersPage.fillForm(waitersFactory);
+        }
+    }
+
+    private void addDishes(){
+        for (int i=0; i<DefaultTestData.MAX_CATEGORY;i++){
+            dishPage.selectCategory(i);
+
+            for(int j=0; j<DefaultTestData.MAX_DISH; j++){
+                dishPage.createNewDish();
+                dishPage.fillDishForm(dishFactory);
+            }
+        }
+    }
+
+    private void addCategories(){
+        for(int i=0; i< DefaultTestData.MAX_CATEGORY; i++){
+            categoryPage.fillCategoryForm(categoryFactory);
+        }
     }
 }

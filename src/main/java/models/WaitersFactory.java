@@ -1,5 +1,12 @@
 package models;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class WaitersFactory {
     private String polishNameWaiter;
     private String englishNameWaiter;
@@ -14,61 +21,5 @@ public class WaitersFactory {
         this.englishNameWaiter = englishNameWaiter;
         this.polishDescriptionWaiter = polishDescriptionWaiter;
         this.englishDescriptionWaiter = englishDescriptionWaiter;
-    }
-
-    public String getPolishNameWaiter() {
-        return polishNameWaiter;
-    }
-
-    public void setPolishNameWaiter(String polishNameWaiter) {
-        this.polishNameWaiter = polishNameWaiter;
-    }
-
-    public String getEnglishNameWaiter() {
-        return englishNameWaiter;
-    }
-
-    public void setEnglishNameWaiter(String englishNameWaiter) {
-        this.englishNameWaiter = englishNameWaiter;
-    }
-
-    public String getPolishDescriptionWaiter() {
-        return polishDescriptionWaiter;
-    }
-
-    public void setPolishDescriptionWaiter(String polishDescriptionWaiter) {
-        this.polishDescriptionWaiter = polishDescriptionWaiter;
-    }
-
-    public String getEnglishDescriptionWaiter() {
-        return englishDescriptionWaiter;
-    }
-
-    public void setEnglishDescriptionWaiter(String englishDescriptionWaiter) {
-        this.englishDescriptionWaiter = englishDescriptionWaiter;
-    }
-
-    public String getPhotoWaiter1() {
-        return photoWaiter1;
-    }
-
-    public void setPhotoWaiter1(String photoWaiter1) {
-        this.photoWaiter1 = photoWaiter1;
-    }
-
-    public String getPhotoWaiter2() {
-        return photoWaiter2;
-    }
-
-    public void setPhotoWaiter2(String photoWaiter2) {
-        this.photoWaiter2 = photoWaiter2;
-    }
-
-    public String getPhotoWaiter3() {
-        return photoWaiter3;
-    }
-
-    public void setPhotoWaiter3(String photoWaiter3) {
-        this.photoWaiter3 = photoWaiter3;
     }
 }

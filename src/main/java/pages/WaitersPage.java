@@ -1,5 +1,6 @@
 package pages;
 
+import configuration.ConfigController;
 import models.WaitersFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -81,7 +82,7 @@ public class WaitersPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        ConfigController.updateWaiterId();
     }
 
     private void addWaiterData(WaitersFactory waitersFactory){

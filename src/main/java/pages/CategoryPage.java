@@ -1,5 +1,6 @@
 package pages;
 
+import configuration.ConfigController;
 import models.CategoryFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,9 +42,13 @@ public class CategoryPage extends BasePage {
             e.printStackTrace();
         }
 
+
         addCategory(categoryFactory);
 
+
         createCategoryButton.click();
+        ConfigController.updateCategoryId();
+
     }
 
     private void addCategory(CategoryFactory categoryFactory){
